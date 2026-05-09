@@ -1,0 +1,152 @@
+@import '../../styles/_variables.scss';
+
+.footer {
+    padding: 20px 0;
+    background-color: $light-body-bg-color;
+
+    @media screen and (min-width: 800px) {
+        padding: 60px 0;
+    }
+
+    & .container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+
+        @media screen and (min-width: 720px) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__logo {
+        display: block;
+        width: max-content;
+    }
+
+    &__icon {
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__item {
+        color: $light-text-color;
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 1.7;
+
+        @media screen and (min-width: 800px) {
+            font-size: 12px;
+        }
+    }
+
+
+    &__link {
+        color: $light-text-color;
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 1.7;
+
+        @media screen and (min-width: 800px) {
+            font-size: 12px;
+        }
+    }
+
+    &__form {
+        padding-bottom: 4px;
+
+        @media screen and (min-width: 720px) {
+            align-self: end;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+
+        @media screen and (min-width: 360px) {
+            flex-direction: row;
+            gap: 18px;
+        }
+
+        @media screen and (min-width: 720px) {
+            gap: 36px;
+        }
+    }
+
+    &__label {}
+
+    &__input {
+        color: $light-text-color;
+        font-size: 12px;
+        font-weight: 400;
+        border: none;
+        min-width: 150px;
+        border-radius: 20px;
+        background-color: $light-input-color;
+        padding: 10px;
+
+        @media screen and (min-width: 800px) {
+            min-width: 204px;
+        }
+
+        &::placeholder {
+            color: $light-placeholder-color;
+            font-size: 12px;
+            font-weight: 400;
+        }
+    }
+
+    &__btn {
+        color: $light-body-bg-color;
+        font-size: 12px;
+        font-weight: 400;
+        padding: 10px;
+        background-color: $bg-black-color;
+        border-radius: 20px;
+    }
+
+    &__info {
+        color: $light-text-color;
+        font-size: 6px;
+        font-weight: 400;
+        margin-top: 18px;
+    }
+}
+
+body.dark .footer {
+    background-color: $dark-body-bg-color;
+
+    &__item {
+        color: $dark-text-color;
+    }
+
+    &__link {
+        color: $dark-text-color;
+    }
+
+    &__input {
+        color: $dark-text-color;
+        background-color: $dark-input-color;
+
+        &::placeholder {
+            color: $dark-placeholder-color;
+        }
+    }
+
+    &__btn {
+        color: $btn-svg-color;
+        background-color: $bg-black-color;
+    }
+
+    &__info {
+        color: $dark-text-color;
+    }
+}

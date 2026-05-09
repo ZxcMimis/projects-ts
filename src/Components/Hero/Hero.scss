@@ -1,0 +1,48 @@
+@import '../../styles/_variables.scss';
+
+.hero {
+    padding-top: 36px;
+    padding-bottom: 36px;
+
+
+    &__title {
+        color: $light-text-color;
+        font-family: "Montserrat Alternates";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        text-align: center;
+        margin-bottom: 30px;
+        
+        @media screen and (min-width: 768px) {}
+
+        @media screen and (min-width: 1200px) {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 36px;
+        }
+    }
+
+    &__line {
+        width: 100%;
+        height: 1px;
+        margin: 0 auto;
+        background-color: $light-text-color;
+        @media screen and (min-width: 768px) {
+            width: 536px;
+        }
+    }
+}
+
+body.dark .hero {
+
+
+    &__title {
+        color: $dark-text-color;
+    }
+
+    &__line {
+        background-color: $dark-text-color;
+    }
+}
