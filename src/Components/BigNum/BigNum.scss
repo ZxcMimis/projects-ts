@@ -1,111 +1,116 @@
-@import '../../styles/_variables.scss';
+@import '../../styles/variables';
 
 .bignum {
-    padding-bottom: 36px;
+  width: 100%;
+  
+  &__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 0;
+    flex-wrap: wrap; 
+  }
 
-    &__title {
-        color: $light-text-color;
-        text-align: center;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: normal;
+  &__input {
+    width: 140px;
+    padding: 14px 20px;
+    border-radius: $border-radius-pill;
+    background: $l-input;
+    border: 2px solid transparent;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: $l-text;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all $transition-speed;
+    outline: none;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
 
+    &::placeholder {
+      color: #999;
+      font-weight: 400;
+    }
+
+    &:focus {
+      border-color: $l-accent;
+      background: #fff;
+      box-shadow: 0 0 15px rgba($l-accent, 0.15);
+      transform: translateY(-2px);
+    }
+  }
+
+  &__text {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    color: $l-text;
+
+    span {
+      color: $l-accent;
+      font-size: 24px;
+      font-weight: 700;
+      margin-left: 10px;
+    }
+  }
+
+  &__line {
+    width: 100%;
+    max-width: 400px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba($l-accent, 0.3), transparent);
+    margin: 0 auto;
+  }
+
+  // Адаптив під мобільні телефони
+  @media screen and (max-width: 500px) {
     &__form {
-        display: flex;
-        justify-content: center;
-        gap: 38px;
-        padding: 36px 0px 36px 0px;
+      flex-direction: column;
+      gap: 15px;
     }
 
     &__input {
-        font-size: 12px;
-        font-weight: 400;
-        line-height: normal;
-        width: 135px;
-        height: 35px;
-        padding: 10px 20px;
-        align-items: flex-start;
-        gap: 10px;
-        border-radius: 20px;
-        background: $light-input-color;
-        display: inline-flex;
-        border: none;
-        text-align: center;
-        align-items: flex-start;
-        box-shadow: $light-shadow;
-
-        &::-webkit-inner-spin-button,
-        &::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        &::placeholder {
-            color: $light-placeholder-color;
-
-        }
+      width: 100%;
+      max-width: 250px;
     }
-
-    &__text {
-        text-align: center;
-        margin-bottom: 36px;
-        color: $light-text-color;
-        font-size: 12px;
-        font-weight: 400;
-        line-height: normal;
-    }
-
-    &__line {
-        width: 100%;
-        max-width: 536px;
-        height: 1px;
-        background-color: $light-text-color;
-        margin: 0 auto;
-    }
-
-    @media screen and (max-width: 460px) {
-        .bignum {
-            &__form {
-                max-width: 100%;
-                flex-direction: column;
-            }
-
-            &__input{
-                margin: 0 auto;
-            }
-        }
-    }
+  }
 }
 
-
-body.dark .bignum {
-
-    &__title {
-        color: $dark-text-color;
-    }
-
-
-
+// 🌙 Темна тема
+body.dark-theme {
+  .bignum {
     &__input {
-        color: $dark-placeholder-color;
-        background: $dark-input-color;
-        box-shadow: $dark-shadow;
+      background: $d-input;
+      color: #fff;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
 
-        &::placeholder {
-            color: $dark-placeholder-color;
+      &::placeholder {
+        color: #666;
+      }
 
-
-        }
+      &:focus {
+        border-color: $d-accent;
+        background: #222;
+        box-shadow: 0 0 15px rgba($d-accent, 0.15);
+      }
     }
 
     &__text {
-        color: $dark-text-color;
+      color: $d-text;
+
+      span {
+        color: $d-accent;
+      }
     }
 
     &__line {
-        background-color: $dark-text-color;
+      background: linear-gradient(90deg, transparent, rgba($d-accent, 0.3), transparent);
     }
-
-
+  }
 }

@@ -1,243 +1,137 @@
-@import '../../styles/_variables.scss';
-
+@import '../../styles/variables';
 
 .header {
-    padding: 12px 0;
-    background-color: $light-body-bg-color;
+  padding: 20px 40px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background: transparent;
+  color: $l-text;
+  transition: all $transition-speed;
 
-    @media screen and (min-width: 800px) {
-        padding: 21px 0;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    color: $l-text;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all $transition-speed;
+
+    &:hover {
+      transform: scale(1.05);
+      color: $l-accent;
     }
+  }
 
-    & .container {
-        display: flex;
-        align-items: center;
+  &__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  &__list {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__link, &__select {
+    color: $l-text;
+    font-size: 15px;
+    background: none;
+    border: none;
+    padding: 5px 0;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color $transition-speed;
+
+    &:hover {
+      color: $l-accent;
     }
+  }
 
-    &__logo {
-        line-height: 0;
+  &__user-block {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 15px;
+
+    span {
+      color: $l-accent;
+      font-weight: 700;
+      margin-left: 5px;
     }
+  }
 
-    &__icon {}
+  &__theme-btn {
+    background: $l-input;
+    color: $l-text;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all $transition-speed;
 
-    &__nav {
-        display: none;
-
-        @media screen and (min-width: 600px) {
-            margin-left: 40px;
-            display: block;
-        }
-
-        @media screen and (min-width: 800px) {
-            margin-left: 81px;
-        }
+    &:hover {
+      background: $l-accent;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba($l-accent, 0.3);
     }
-
-    &__list {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-
-        @media screen and (min-width: 800px) {
-            gap: 50px;
-        }
-    }
-
-    &__item {
-        position: relative;
-        display: flex;
-        align-items: center;
-    }
-
-    &__select {
-        font-size: 10px;
-        border: none;
-        padding: 0;
-        color: $light-text-color;
-        font-weight: 400;
-        display: flex;
-        gap: 6px;
-        align-items: end;
-
-        @media screen and (min-width: 800px) {
-            font-size: 12px;
-        }
-    }
-
-    &__select.checked &__arrow {
-        transform: rotate(-180deg) translate(0, 50%);
-    }
-
-    &__arrow {
-        fill: none;
-        stroke: $light-text-color;
-        box-sizing: content-box;
-        padding-bottom: 3px;
-    }
-
-    &__sublist {
-        position: absolute;
-        border: 1px solid $light-text-color;
-        border-top: none;
-        background: $light-body-bg-color;
-        left: 50%;
-        transform: translate(-50%, 0);
-        width: 120px;
-        display: flex;
-        flex-direction: column;
-        border-radius: 0px 0px 20px 20px;
-        overflow: hidden;
-        top: 38px;
-
-        @media screen and (min-width: 800px) {
-            top: 48px;
-            width: 160px;
-        }
-
-        &.is-hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-    }
-
-    &__subitem {}
-
-    &__subbtn {
-        padding: 6px 0;
-        color: $light-text-color;
-        font-weight: 400;
-        background-color: $light-body-bg-color;
-        width: 100%;
-        font-size: 9px;
-
-        @media screen and (min-width: 800px) {
-            font-size: 12px;
-            padding: 10px 0;
-        }
-
-        &:hover {
-            background-color: $light-interactiv;
-        }
-    }
-
-    &__link {
-        color: $light-text-color;
-        font-size: 10px;
-        font-weight: 400;
-
-        @media screen and (min-width: 800px) {
-            font-size: 12px;
-        }
-    }
-
-    &__btn {
-        margin-left: auto;
-        background-color: $bg-toogle-btn;
-        width: 30px;
-        border-radius: 11px;
-
-        @media screen and (min-width: 800px) {
-            width: 40px;
-        }
-    }
-
-    &__wrapper {
-        width: 15px;
-        height: 15px;
-        background-color: $light-body-bg-color;
-        border: 0.5px solid $light-text-color;
-        border-radius: 50%;
-        margin-left: 0;
-        padding: 1px;
-
-        @media screen and (min-width: 800px) {
-            width: 20px;
-            height: 20px;
-        }
-
-        body.dark & {
-            background-color: $bg-black-color;
-            margin-left: 15px;
-            transform: rotate(720deg);
-
-            @media screen and (min-width: 800px) {
-                margin-left: 20px;
-            }
-        }
-    }
-
-
-    &__img {}
-
-    &__text {
-        color: $light-text-color;
-        font-size: 10px;
-        font-weight: 400;
-        margin-left: 20px;
-
-        @media screen and (min-width: 800px) {
-            font-size: 12px;
-            margin-left: 51px;
-        }
-    }
-
-    &__name {}
+  }
 }
 
-body.dark .header {
-    background-color: $dark-body-bg-color;
+body.dark-theme {
+  .header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: $d-text;
 
-    &__select {
-        color: $dark-text-color;
+    &__logo {
+      color: $d-text;
+
+      &:hover {
+        color: $d-accent;
+      }
     }
 
-    &__arrow {
-        stroke: $dark-text-color;
+    &__link, &__select {
+      color: $d-text;
+
+      &:hover {
+        color: $d-accent;
+      }
     }
 
-    &__sublist {
-        border: 1px solid $dark-text-color;
-        background: $dark-body-bg-color;
+    &__text span {
+      color: $d-accent;
     }
 
-    &__subitem {
-        color: $dark-text-color;
-        background-color: $dark-body-bg-color;
+    &__theme-btn {
+      background: $d-input;
+      color: $d-text;
 
-        &:hover {
-            background-color: $dark-interactiv;
-        }
+      &:hover {
+        background: $d-accent;
+        color: #000;
+        box-shadow: 0 5px 15px rgba($d-accent, 0.3);
+      }
     }
-
-    &__link {
-        color: $dark-text-color;
-    }
-
-    &__btn {
-        background-color: $bg-toogle-btn;
-    }
-
-    &__wrapper {
-        background-color: $bg-black-color;
-        border: 0.5px solid $bg-black-color;
-    }
-
-    &__text {
-        color: $dark-text-color;
-    }
-
-    &__sublist {
-        border: 1px solid $dark-text-color;
-        background: $dark-body-bg-color;
-        border-top: none;
-    }
-
-    &__subbtn {
-        color: $dark-text-color;
-        background-color: $dark-body-bg-color;
-
-        &:hover {
-            background-color: $dark-interactiv;
-        }
-    }
+  }
 }

@@ -1,48 +1,50 @@
-@import '../../styles/_variables.scss';
+@import '../../styles/variables';
 
 .hero {
-    padding-top: 36px;
-    padding-bottom: 36px;
+  padding: 60px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 
+  &__title {
+    color: $l-text;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    transition: color $transition-speed;
 
-    &__title {
-        color: $light-text-color;
-        font-family: "Montserrat Alternates";
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 300;
-        line-height: normal;
-        text-align: center;
-        margin-bottom: 30px;
-        
-        @media screen and (min-width: 768px) {}
-
-        @media screen and (min-width: 1200px) {
-            font-size: 24px;
-            font-weight: 400;
-            margin-bottom: 36px;
-        }
+    @media screen and (min-width: 768px) {
+      font-size: 32px;
     }
 
-    &__line {
-        width: 100%;
-        height: 1px;
-        margin: 0 auto;
-        background-color: $light-text-color;
-        @media screen and (min-width: 768px) {
-            width: 536px;
-        }
+    @media screen and (min-width: 1200px) {
+      font-size: 38px;
+      margin-bottom: 40px;
     }
+  }
+
+  &__line {
+    width: 100%;
+    max-width: 536px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, $l-accent, transparent);
+    border-radius: 5px;
+    transition: background $transition-speed;
+  }
 }
 
-body.dark .hero {
-
-
+body.dark-theme {
+  .hero {
     &__title {
-        color: $dark-text-color;
+      color: $d-text;
+      text-shadow: 0 0 15px rgba($d-accent, 0.4);
     }
 
     &__line {
-        background-color: $dark-text-color;
+      background: linear-gradient(90deg, transparent, $d-accent, transparent);
+      box-shadow: 0 0 15px rgba($d-accent, 0.6);
     }
+  }
 }

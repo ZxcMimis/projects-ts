@@ -1,235 +1,182 @@
-@import '../../styles/_variables.scss';
+@import '../../styles/variables';
 
 .football {
-    padding-bottom: 36px;
+  width: 100%;
 
-    &__title {
-        color: $light-text-color;
-        font-size: 16px;
-        font-weight: 400;
-        margin-bottom: 36px;
-        text-align: center;
+  &__field {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(180deg, #27ae60 0%, #2ecc71 100%);
+    border-radius: $border-radius-card;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    gap: 15px;
+  }
+
+  &__result-text {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 10px;
+
+    span {
+      color: $l-accent;
+      font-size: 32px;
     }
+  }
 
-    &__field {
-        margin: 0 auto 36px;
-        max-width: 720px;
-        width: 100%;
-        height: 150px;
-        border-radius: 37px;
-        border: 2px solid $light-text-color;
-        background-color: #5ABB58;
-        position: relative;
-        cursor: url(../svg/cursor.svg) 4 4, pointer;
-        overflow: hidden;
+  &__btn-play, &__btn-table {
+    background: $l-accent;
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: $border-radius-pill;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all $transition-speed;
 
-        @media screen and (min-width: 600px) {
-            height: 220px;
-        }
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba($l-accent, 0.4);
     }
+  }
 
-    &__count {
-        color: $light-text-color;
-        font-size: 20px;
-        font-weight: 400;
-        margin-bottom: 36px;
-        position: absolute;
-        left: 30px;
-        top: 20px;
-        z-index: 10;
-        user-select: none;
+  &__btn-table {
+    margin-top: 10px;
+  }
+
+  &__stats {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 30px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  &__ball {
+    width: 60px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: top 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.1s;
+    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.4));
+    z-index: 5;
+
+    &:active {
+      transform: translateX(-50%) scale(0.9);
     }
+  }
 
-    &__time {
-        color: $light-text-color;
-        font-size: 20px;
-        font-weight: 400;
-        margin-bottom: 36px;
-        position: absolute;
-        left: 80px;
-        top: 20px;
-        z-index: 10;
-        user-select: none;
+  &__gates {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    opacity: 0.8;
+  }
+
+  &__modal {
+    background: $l-bg-card;
+    color: $l-text;
+    padding: 40px;
+    border-radius: $border-radius-card;
+    min-width: 350px;
+    box-shadow: $l-shadow;
+    position: relative;
+    text-align: center;
+
+    h2 {
+      margin-bottom: 25px;
     }
+  }
 
-    &__ball {
-        pointer-events: none;
-        position: absolute;
-        transform: translate(-50%, -50%);
-        width: 25px;
-        height: 25px;
-        user-select: none;
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    font-weight: 500;
 
-        @media screen and (min-width: 600px) {
-            width: 50px;
-            height: 50px;
-        }
+    &:last-child {
+      border-bottom: none;
     }
+  }
 
-    &__img {
-        pointer-events: none;
-        position: absolute;
-        width: 50px;
-        user-select: none;
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: $l-input;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $l-text;
+    transition: all 0.2s;
 
-        @media screen and (min-width: 600px) {
-            width: 100px;
-        }
+    &:hover {
+      background: #ff7675;
+      color: #fff;
+      transform: scale(1.1);
     }
+  }
+}
 
-    &__line {
-        width: 100%;
-        max-width: 536px;
-        height: 1px;
-        background-color: $light-text-color;
-        margin: 0 auto;
-    }
-
-    &__backdrop {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        background-color: $light-backdrop;
-        z-index: 10;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-    }
-
-    &__play {
-        border-radius: 20px;
-        background-color: $bg-black-color;
-        box-shadow: $light-shadow;
-        padding: 10px 20px;
-        color: $btn-svg-color;
-        font-size: 12px;
-        font-weight: 400;
-        user-select: none;
-    }
-
-    &__info {
-        color: $light-text-color;
-        font-size: 12px;
-        font-weight: 400;
-        margin-top: 24px;
-        text-align: center;
-        margin-bottom: 36px;
-    }
-
-    &__btn {
-        border-radius: 20px;
-        background-color: $bg-black-color;
-        box-shadow: $light-shadow;
-        padding: 10px 20px;
-        color: $btn-svg-color;
-        font-size: 12px;
-        font-weight: 400;
-        margin: 20px auto 0;
-    }
-
+body.dark-theme {
+  .football {
     &__modal {
-        width: calc(100% - 30px);
-        max-width: 640px;
-        background-color: $light-body-bg-color;
-        border-radius: 20px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 20px 30px;
-        max-height: 400px;
-        height: calc(100% - 60px);
-
-        @media screen and (min-width: 440px) {
-            padding: 46px 66px;
-        }
-    }
-
-    &__close {
-        line-height: 0;
-        position: absolute;
-        right: 14px;
-        top: 14px;
-
-        @media screen and (min-width: 440px) {
-            right: 30px;
-            top: 30px;
-        }
-    }
-
-    &__dagger {
-        stroke: $light-text-color;
-    }
-
-    &__subtitle {
-        color: $light-text-color;
-        font-size: 16px;
-        font-weight: 400;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    &__table {
-        max-width: 400px;
-        margin: 0 auto;
-        width: 100%;
-        overflow-y: auto;
-        height: max-content;
-        max-height: calc(100% - 39px);
-        border-radius: 20px;
-        scrollbar-width: thin;
-        scrollbar-color: $light-bg-gray-color $light-interactiv;
-    }
-
-    &__text {
-        color: $light-text-color;
-        font-size: 12px;
-        font-weight: 400;
-        text-align: center;
+      background: $d-bg-card;
+      color: $d-text;
+      box-shadow: $d-shadow;
     }
 
     &__row {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 24px;
-
-        &:nth-child(odd) {
-            background-color: $light-interactiv;
-        }
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    &__header {
-        color: $light-text-color;
-        font-size: 12px;
-        font-weight: 400;
+    &__result-text span {
+      color: $d-accent;
     }
 
-    &__score {
-        color: $light-text-color;
-        font-size: 12px;
-        font-weight: 400;
-    }
-}
+    &__btn-play, &__btn-table {
+      background: $d-accent;
+      color: #000;
 
-body.dark .football {
-    &__title {
-        color: $dark-text-color;
+      &:hover {
+        box-shadow: 0 5px 15px rgba($d-accent, 0.4);
+      }
     }
 
-    &__field {
-        border: 2px solid $dark-text-color;
-    }
+    .close-btn {
+      background: $d-input;
+      color: $d-text;
 
-    &__line {
-        background-color: $dark-text-color;
+      &:hover {
+        background: #ff7675;
+        color: #fff;
+      }
     }
-
-    &__info {
-        color: $dark-text-color;
-    }
+  }
 }

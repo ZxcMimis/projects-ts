@@ -1,28 +1,33 @@
-import React from 'react';
-import "./Calculator.scss";
-
+import React, { useState } from 'react';
+import './Calculator.scss';
 
 export const Calculator: React.FC = () => {
+  const [v1, setV1] = useState('');
+  const [v2, setV2] = useState('');
+  const [res, setRes] = useState<any>('?');
+
+  const calc = (op: string) => {
+    const n1 = Number(v1), n2 = Number(v2);
+    if (op === '+') setRes(n1 + n2);
+    if (op === '-') setRes(n1 - n2);
+    if (op === '*') setRes(n1 * n2);
+    if (op === '/') setRes(n2 !== 0 ? n1 / n2 : 'Error');
+  };
+
   return (
-    <section id="4" className="calculator">
-      <h2 className="calculator__title">Калькулятор</h2>
-      <form className="calculator__form">
-        <label className="calculator__label">
-          <input type="number" className="calculator__input" id="firstNum" placeholder="Введіть число" />
-        </label>
-        <ul id="calculatorList" className="calculator__list">
-          <li className="calculator__item"><button type="button" className="calculator__button" id="add">+</button></li>
-          <li className="calculator__item"><button type="button" id="multiply" className="calculator__button">*</button></li>
-          <li className="calculator__item"><button type="button" className="calculator__button" id="subtract">-</button></li>
-          <li className="calculator__item"><button type="button" className="calculator__button" id="divide">/</button></li>
-        </ul>
-        <label className="calculator__label">
-          <input type="number" className="calculator__input" id="secondNum" placeholder="Введіть число" />
-        </label>
-        <button type="button" className="calculator__button" id="equals">=</button>
-        <p id="result1" className="calculator__result">Результат</p>
-      </form>
-      <div className="calculator__line"></div>
+    <section className="calculator">
+      <h2>Калькулятор</h2>
+      <div className="calculator__row">
+        <input type="number" value={v1} onChange={e => setV1(e.target.value)} placeholder="0" />
+        <div className="calculator__ops">
+          {['+', '-', '*', '/'].map(op => (
+            <button key={op} onClick={() => calc(op)}>{op}</button>
+          ))}
+        </div>
+        <input type="number" value={v2} onChange={e => setV2(e.target.value)} placeholder="0" />
+        <span className="calculator__eq">=</span>
+        <div className="calculator__result">{res}</div>
+      </div>
     </section>
   );
 };

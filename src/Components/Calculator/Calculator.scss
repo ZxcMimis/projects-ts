@@ -1,148 +1,33 @@
-@import '../../styles/_variables.scss';
-
 .calculator {
-    padding-bottom: 36px;
-
-    &__title {
-        color: $light-text-color;
-        font-family: "Montserrat Alternates";
-        font-size: 13px;
-        font-style: normal;
-        font-weight: 300;
-        line-height: normal;
-        text-align: center;
-        margin-bottom: 30px;
-
-        @media screen and (min-width: 768px) {}
-
-        @media screen and (min-width: 1000px) {
-            font-size: 16px;
-            font-weight: 400;
-            margin-bottom: 36px;
-        }
-    }
-
-    &__line {
-        width: 100%;
-        height: 1px;
-        background-color: $light-text-color;
-        margin: 0 auto;
-        margin-top: 58px;
-
-        @media screen and (min-width: 768px) {
-            width: 536px;
-        }
-    }
-
-    &__form {
-        display: block;
-        width: 100%;
-
-        @media screen and (min-width: 730px) {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 38px;
-        }
-    }
-
-    &__input {
-        display: block;
-        margin: 0 auto 12px;
-        width: 135px;
-        padding: 10px 20px;
-        border-radius: 20px;
-        background: $light-input-color;
-        box-shadow: $light-shadow;
-        border: none;
-        color: $light-text-color;
-        font-size: 12px;
-        font-style: normal;
-
-        @media screen and (min-width: 730px) {
-            margin: 0;
-        }
-
-        &::-webkit-inner-spin-button,
-        &::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        &::placeholder {
-            color: $light-placeholder-color;
-            font-size: 12px;
-            font-style: normal;
-        }
-    }
-
-    &__list {
-        display: flex;
-        flex-wrap: wrap;
-        width: 60px;
-        gap: 10px;
-        margin: 0 auto 12px;
-
-        @media screen and (min-width: 730px) {
-            margin: 0;
-        }
-    }
-
-    &__button {
-        color: $btn-svg-color;
-        margin: 0 auto;
-        font-size: 12px;
-        font-weight: 400;
-        width: 25px;
-        height: 25px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 20px;
-        background: $bg-black-color;
-        box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.25);
-
-        @media screen and (min-width: 730px) {
-            margin: 0;
-        }
-    }
-
-    &__result {
-        color: $light-placeholder-color;
-        text-align: center;
-        width: 253px;
-        font-size: 12px;
-        font-weight: 400;
-        border-radius: 20px;
-        background: $light-input-color;
-        padding: 10px 20px;
-        margin-top: 12px;
-    }
-
-
-}
-
-body.dark .calculator {
-    &__title {
-        color: $dark-text-color;
-    }
-
-    &__line {
-        stroke: $dark-text-color;
-    }
-
-    &__input {
-        background: $dark-input-color;
-        box-shadow: $dark-shadow;
-        color: $dark-text-color;
-
-        &::placeholder {
-            color: $dark-placeholder-color;
-        }
-    }
-
-    &__result {
-        color: $dark-placeholder-color;
-        background: $dark-input-color;
-    }
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  &__ops {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+  }
+  &__ops button {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  &__eq {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  &__result {
+    font-size: 22px;
+    font-weight: 700;
+    color: #6c5ce7;
+    min-width: 50px;
+  }
 }

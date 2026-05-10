@@ -1,0 +1,152 @@
+@import '../../styles/variables';
+
+.hello {
+
+  background: $l-bg-card;
+  color: $l-text;
+  padding: 50px 40px; 
+  border-radius: $border-radius-card;
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: $l-shadow; 
+  transition: all $transition-speed;
+
+  &__title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  &__desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666; 
+    margin-bottom: 30px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: $l-input;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $l-text;
+    transition: all 0.2s;
+
+    &:hover {
+      background: #ff7675; 
+      color: #fff;
+      transform: scale(1.1);
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: left; 
+  }
+
+  &__input {
+    padding: 15px 25px;
+    background: $l-input;
+    border: 2px solid transparent;
+    border-radius: $border-radius-pill; 
+    font-size: 16px;
+    width: 100%;
+    transition: all 0.2s;
+    outline: none;
+
+    &:focus {
+      border-color: $l-accent;
+      background: #fff;
+    }
+  }
+
+  &__btn {
+    padding: 15px;
+    background: $l-accent;
+    color: #fff;
+    border-radius: $border-radius-pill; 
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.2s;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba($l-accent, 0.4);
+    }
+  }
+
+
+  &__icon {
+    position: absolute;
+    opacity: 0.15; 
+    z-index: -1;
+    pointer-events: none;
+
+    &--sword { top: 20px; left: 20px; transform: rotate(-20deg); }
+    &--puzzel { bottom: 20px; right: 20px; transform: rotate(15deg); }
+    &--game { top: 20px; right: 40px; transform: rotate(10deg); }
+    &--layout { bottom: 30px; left: 30px; transform: rotate(-10deg); }
+  }
+}
+
+// 🌙 
+body.dark-theme {
+  .hello {
+    background: $d-bg-card;
+    color: $d-text;
+    box-shadow: $d-shadow;
+
+    &__desc {
+      color: #aaa;
+    }
+
+    &__close {
+      background: $d-input;
+      color: $d-text;
+      &:hover {
+        background: #ff7675;
+        color: #fff;
+      }
+    }
+
+    &__input {
+      background: $d-input;
+      color: #fff;
+      &:focus {
+        background: #222;
+        border-color: $d-accent;
+      }
+    }
+    
+    &__btn {
+      background: $d-accent;
+      color: #000;
+      &:hover {
+        box-shadow: 0 5px 15px rgba($d-accent, 0.4);
+      }
+    }
+
+    &__icon {
+      filter: invert(1); 
+      opacity: 0.1;
+    }
+  }
+}
