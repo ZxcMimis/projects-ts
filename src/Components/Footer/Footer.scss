@@ -28,6 +28,7 @@
   &__list {
     display: flex;
     flex-direction: column;
+    text-align: left;
     gap: 12px;
     list-style: none;
     padding: 0;
@@ -88,6 +89,7 @@
     font-size: 15px;
     cursor: pointer;
     transition: all $transition-speed;
+    
 
     &:hover {
       transform: translateY(-2px);
