@@ -18,7 +18,7 @@ export const Football: React.FC<FootballProps> = ({ userName }) => {
   const [results, setResults] = useState<GameResult[]>([]);
   const [isTableOpen, setIsTableOpen] = useState<boolean>(false);
 
-  // Логика таймера
+
   useEffect(() => {
     let timerId: number;
     if (status === 'playing' && timeLeft > 0) {
@@ -68,14 +68,14 @@ export const Football: React.FC<FootballProps> = ({ userName }) => {
         )}
 
         <img 
-          src="/img/football/ball@1x.webp" 
+          src="../img/football/ball@1x.webp" 
           className="football__ball" 
           style={{ top: status === 'playing' ? '60%' : '80%' }}
           onClick={handleBallClick}
           alt="М'яч" 
         />
         <img 
-          src="/img/football/football-gates@1x.webp" 
+          src="../img/football/football-gates@1x.webp" 
           className="football__gates" 
           alt="Ворота" 
         />
