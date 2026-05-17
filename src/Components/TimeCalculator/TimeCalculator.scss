@@ -1,0 +1,43 @@
+@import '../../styles/variables';
+
+.time-calculator {
+  padding: 40px 20px;
+  text-align: center;
+  width: 100%;
+
+  h2 {
+    margin-bottom: 30px;
+    color: $l-text;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  &__result {
+    font-size: 32px;
+    font-weight: 700;
+    font-family: monospace;
+    color: $l-accent;
+    background: rgba(108, 92, 231, 0.1);
+    padding: 15px 40px;
+    border-radius: $border-radius-pill;
+    letter-spacing: 2px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+}
+
+body.dark-theme .time-calculator {
+  h2 {
+    color: $d-text;
+  }
+
+  &__result {
+    color: $d-accent;
+    background: rgba(162, 155, 254, 0.1);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+}

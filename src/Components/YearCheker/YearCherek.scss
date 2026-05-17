@@ -1,0 +1,64 @@
+@import '../../styles/variables';
+
+.year-checker {
+  padding: 40px 20px;
+  text-align: center;
+  width: 100%;
+
+  h2 {
+    margin-bottom: 30px;
+    color: $l-text;
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  &__btn {
+    height: 48px;
+    padding: 0 30px;
+    border-radius: $border-radius-pill;
+    background: $l-accent;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all $transition-speed ease;
+
+    &:hover {
+      box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+      transform: translateY(-2px);
+    }
+  }
+
+  &__result {
+    font-size: 20px;
+    font-weight: 700;
+    color: $l-accent;
+    min-height: 30px;
+  }
+}
+
+body.dark-theme .year-checker {
+  h2 {
+    color: $d-text;
+  }
+
+  &__btn {
+    background: $d-accent;
+    color: #000;
+
+    &:hover {
+      box-shadow: 0 5px 15px rgba(162, 155, 254, 0.4);
+    }
+  }
+
+  &__result {
+    color: $d-accent;
+  }
+}

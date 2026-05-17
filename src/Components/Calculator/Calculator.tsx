@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+import type { FormSubmitEvent, InputChangeEvent } from '../../types/Types';
+import { Input } from '../UI/Input/Input';
 import './Calculator.scss';
+
+const OPERATORS = ['+', '-', '*', '/'];
 
 export const Calculator: React.FC = () => {
   const [val1, setVal1] = useState<string>('');
@@ -7,7 +11,7 @@ export const Calculator: React.FC = () => {
   const [operator, setOperator] = useState<string>('+');
   const [result, setResult] = useState<number | string>('Результат');
 
-  const handleCalculate = (e: React.FormEvent) => {
+  const handleCalculate = (e: FormSubmitEvent) => {
     e.preventDefault();
     const n1 = parseFloat(val1);
     const n2 = parseFloat(val2);
@@ -28,40 +32,42 @@ export const Calculator: React.FC = () => {
     }
   };
 
+  const handleVal1Change = (e: InputChangeEvent) => setVal1(e.target.value);
+  const handleVal2Change = (e: InputChangeEvent) => setVal2(e.target.value);
+
   return (
     <section id="4" className="calculator">
       <h2>Калькулятор</h2>
-      <form className="calculator__row" onSubmit={handleCalculate}>
-        <input 
+      <form className="calculator__form" onSubmit={handleCalculate}>
+        <Input 
           type="number" 
           value={val1} 
-          onChange={e => setVal1(e.target.value)} 
+          onChange={handleVal1Change} 
           placeholder="Число 1" 
+          style={{ width: '130px' }}
         />
-        
-        <div className="calculator__ops">
-          {['+', '-', '*', '/'].map(op => (
+        <div className="calculator__operators">
+          {OPERATORS.map((op) => (
             <button 
               key={op} 
               type="button"
-              style={{ opacity: operator === op ? 1 : 0.5 }}
+              className={`calculator__op-btn ${operator === op ? 'active' : ''}`}
               onClick={() => setOperator(op)}
             >
               {op}
             </button>
           ))}
         </div>
-
-        <input 
+        <Input 
           type="number" 
           value={val2} 
-          onChange={e => setVal2(e.target.value)} 
+          onChange={handleVal2Change} 
           placeholder="Число 2" 
+          style={{ width: '130px' }}
         />
-        
         <button type="submit" className="calculator__eq">=</button>
-        <div className="calculator__result">{result}</div>
       </form>
+      <div className="calculator__result">{result}</div>
     </section>
   );
 };

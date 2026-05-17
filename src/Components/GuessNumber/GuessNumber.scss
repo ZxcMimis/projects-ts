@@ -1,0 +1,132 @@
+@import '../../styles/variables';
+
+.guess-number {
+  padding: 40px 20px;
+  text-align: center;
+  width: 100%;
+
+  h2 {
+    margin-bottom: 20px;
+    color: $l-text;
+  }
+
+  &__message {
+    font-size: 18px;
+    font-weight: 500;
+    color: $l-text;
+    margin-bottom: 30px;
+    min-height: 25px;
+
+    &.won {
+      color: #2ecc71;
+      font-weight: 700;
+      font-size: 22px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  &__input {
+    width: 180px;
+    height: 48px;
+    padding: 0 20px;
+    border-radius: $border-radius-pill;
+    background: $l-input;
+    border: 2px solid transparent;
+    color: $l-text;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    transition: all $transition-speed ease;
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    &:focus {
+      background: $l-bg-card;
+      border-color: $l-accent;
+      box-shadow: 0 0 15px rgba($l-accent, 0.2);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__btn {
+    height: 48px;
+    padding: 0 30px;
+    border-radius: $border-radius-pill;
+    background: $l-accent;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all $transition-speed ease;
+
+    &:hover {
+      box-shadow: 0 5px 15px rgba($l-accent, 0.4);
+      transform: translateY(-2px);
+    }
+
+    &.restart {
+      background: #2ecc71;
+      
+      &:hover {
+        box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+      }
+    }
+  }
+}
+
+body.dark-theme .guess-number {
+  h2, &__message {
+    color: $d-text;
+  }
+
+  &__message.won {
+    color: #2ecc71;
+  }
+
+  &__input {
+    background: $d-input;
+    color: $d-text;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    &:focus {
+      background: $d-bg-card;
+      border-color: $d-accent;
+      box-shadow: 0 0 15px rgba($d-accent, 0.2);
+    }
+  }
+
+  &__btn {
+    background: $d-accent;
+    color: #000;
+
+    &:hover {
+      box-shadow: 0 5px 15px rgba($d-accent, 0.4);
+    }
+
+    &.restart {
+      background: #2ecc71;
+      color: #000;
+      
+      &:hover {
+        box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+      }
+    }
+  }
+}

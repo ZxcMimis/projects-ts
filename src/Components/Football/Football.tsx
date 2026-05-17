@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import type { FootballProps, GameResult } from '../../types/Types';
 import './Football.scss';
-
-interface FootballProps {
-  userName: string; 
-}
-
-interface GameResult {
-  name: string;
-  score: number;
-}
 
 export const Football: React.FC<FootballProps> = ({ userName }) => {
   const [score, setScore] = useState<number>(0);
@@ -17,7 +9,6 @@ export const Football: React.FC<FootballProps> = ({ userName }) => {
   
   const [results, setResults] = useState<GameResult[]>([]);
   const [isTableOpen, setIsTableOpen] = useState<boolean>(false);
-
 
   useEffect(() => {
     let timerId: number;
@@ -68,14 +59,14 @@ export const Football: React.FC<FootballProps> = ({ userName }) => {
         )}
 
         <img 
-          src="../img/football/ball@1x.webp" 
+          src="/img/football/ball@1x.webp" 
           className="football__ball" 
           style={{ top: status === 'playing' ? '60%' : '80%' }}
           onClick={handleBallClick}
           alt="М'яч" 
         />
         <img 
-          src="../img/football/football-gates@1x.webp" 
+          src="/img/football/football-gates@1x.webp" 
           className="football__gates" 
           alt="Ворота" 
         />
